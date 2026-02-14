@@ -8,9 +8,10 @@ import java.util.Random;
 
 public class characterSpawner {
     //Spawn one human
+	Random rand = new Random();
     public Survivor spawnHuman(int survivorCount)
     {
-        Random rand = new Random();
+        
         int randInt = rand.nextInt(3);
         Survivor human;
         
@@ -37,8 +38,6 @@ public class characterSpawner {
     //Spawn a specified number of humans
     public Survivor[] spawnManyHuman(int amount, int survivorCount)
     {
-        Random rand = new Random();
-        int randInt = rand.nextInt(3);
         Survivor[] humans = new Survivor[amount];
         //Random variable picks between soldier, child, and teacher
         for (int i = 0; i < amount; i++)
@@ -52,7 +51,6 @@ public class characterSpawner {
     //Spawn a single zombie
     public Zombie spawnZombie(int zombieCount)
     {
-        Random rand = new Random();
         int randInt = rand.nextInt(2);
         Zombie monster;
         
@@ -75,8 +73,6 @@ public class characterSpawner {
     //Spawn a specified number of zombies
     public Zombie[] spawnManyZombie(int amount, int zombieCount)
     {
-        Random rand = new Random();
-        int randInt = rand.nextInt(2);
         Zombie[] monsters = new Zombie[amount];
         //For every zombie, pick between common infected or tank
         for (int i = 0; i < amount; i++)
