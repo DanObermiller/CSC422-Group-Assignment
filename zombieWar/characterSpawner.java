@@ -61,7 +61,7 @@ public class characterSpawner {
             randInt = rand.nextInt(3);
         }
         //Return array of humans
-        return humans[];
+        return humans;
     }
     
     //Spawn a single zombie
@@ -74,7 +74,7 @@ public class characterSpawner {
         //Pick randomly between common infected or tank
         if (randInt == 0)
         {
-            monster = new CommonInfect();
+            monster = new CommonInfected();
             
         }
         else {
@@ -98,7 +98,7 @@ public class characterSpawner {
         {
             if (randInt == 0)
             {
-                monsters[i] = new CommonInfect();
+                monsters[i] = new CommonInfected();
 
             }
             else {
@@ -110,6 +110,6 @@ public class characterSpawner {
             randInt = rand.nextInt(2);
         }
         //Return list of monsters
-        return monsters[];
+        return monsters;
     }
 }

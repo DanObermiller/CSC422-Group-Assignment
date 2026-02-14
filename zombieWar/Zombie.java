@@ -5,8 +5,7 @@
 package zombieWar;
 
 /**
- *
- * @author jarodK,samH,danO,jordonJ
+ * @author Jarod Koenigsfeld
  */
 public abstract class Zombie implements Character {
 	int attack;
@@ -39,5 +38,10 @@ public abstract class Zombie implements Character {
 
 	public void damage(int damageDealt){
 		health = health-damageDealt;
+	}
+	public boolean isAlive() {
+		
+		return health <= 0;
+		
 	}
 }

@@ -96,5 +96,6 @@ public class Game {
                 aliveCount++;
             }
         }
+        return aliveCount;
     }
 }

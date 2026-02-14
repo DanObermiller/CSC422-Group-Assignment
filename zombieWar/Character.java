@@ -1,14 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package zombieWar;
 
 /**
- *
- * @author jarodK,samH,danO,jordonJ
+ * Character.java - Interface for characters
+ * @author Jarod Koenigsfeld
  */
 public interface Character {
+	public boolean isAlive();
 	public int getHealth();
 	public int getAttack();
 	public String getName();

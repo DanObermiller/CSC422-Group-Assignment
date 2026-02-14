@@ -1,12 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package zombieWar;
 
 /**
- *
- * @author jarodK,samH,danO,jordonJ
+ * @author Jarod Koenigsfeld
  */
 public abstract class Survivor implements Character{
 	int attack;
@@ -39,5 +34,11 @@ public abstract class Survivor implements Character{
 
 	public void damage(int damageDealt){
 		health = health-damageDealt;
+	}
+	
+	public boolean isAlive() {
+		
+		return health <= 0;
+		
 	}
 }
