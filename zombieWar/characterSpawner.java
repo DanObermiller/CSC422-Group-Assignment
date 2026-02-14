@@ -43,22 +43,7 @@ public class characterSpawner {
         //Random variable picks between soldier, child, and teacher
         for (int i = 0; i < amount; i++)
         {
-            if (randInt == 0)
-            {
-                humans[i] = new Soldier();
-
-            }
-            else if (randInt == 1)
-            {
-                humans[i] = new Child();
-            }
-            else {
-                humans[i] = new Teacher();
-            }
-            //Add number to name
-            String name = humans[i].getName();
-            humans[i].setName("" + name + " " + (survivorCount + 1 + i));
-            randInt = rand.nextInt(3);
+            humans[i] = spawnHuman(survivorCount);
         }
         //Return array of humans
         return humans;
@@ -96,18 +81,7 @@ public class characterSpawner {
         //For every zombie, pick between common infected or tank
         for (int i = 0; i < amount; i++)
         {
-            if (randInt == 0)
-            {
-                monsters[i] = new CommonInfected();
-
-            }
-            else {
-                monsters[i] = new Tank();
-            }
-            //Add number to name
-            String name = monsters[i].getName();
-            monsters[i].setName("" + name + " " + (zombieCount + 1 + i));
-            randInt = rand.nextInt(2);
+            monsters[i] = spawnZombie(zombieCount);
         }
         //Return list of monsters
         return monsters;
