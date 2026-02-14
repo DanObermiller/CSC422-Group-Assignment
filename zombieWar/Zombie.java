@@ -41,7 +41,7 @@ public abstract class Zombie implements Character {
 	}
 	public boolean isAlive() {
 		
-		return health <= 0;
+		return health > 0;
 		
 	}
 }
