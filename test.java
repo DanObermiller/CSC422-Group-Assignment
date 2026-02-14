@@ -1,4 +1,4 @@
-package CSC422-Group-Assignment;
+package zombieWar;
 
 public class test {
     public static void main(String[] args) {
