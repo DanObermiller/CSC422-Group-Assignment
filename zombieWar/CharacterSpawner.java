@@ -6,7 +6,7 @@ import java.util.Random;
 //Written by Dan Obermiller for Zombie War project
 //2/12/2026
 
-public class characterSpawner {
+public class CharacterSpawner {
 	//Spawn one human
 	Random rand = new Random();
 	int soldierCount;
@@ -114,3 +114,4 @@ public class characterSpawner {
 		return monsters;
 	}
 }
+
