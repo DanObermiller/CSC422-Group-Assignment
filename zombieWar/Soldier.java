@@ -1,5 +1,7 @@
 package zombieWar;
-
+/**
+ * @author Jarod Koenigsfeld
+ */
 public class Soldier extends Survivor{
 	
 	public Soldier() {

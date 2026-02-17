@@ -1,7 +1,7 @@
 package zombieWar;
 /**
  *
- * @author jarodK,samH,danO,jordonJ
+ * @author CSC Group 4 (In alphabetical order, Dan Obermiller, Jarod Koenigsfeld, Jordon Jagunich, Sam Hang)
  */
 
 import java.util.Arrays;

@@ -36,9 +36,4 @@ public abstract class Survivor implements Character{
 		health = health-damageDealt;
 	}
 	
-	public boolean isAlive() {
-		
-		return health > 0;
-		
-	}
 }

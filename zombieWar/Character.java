@@ -5,7 +5,6 @@ package zombieWar;
  * @author Jarod Koenigsfeld
  */
 public interface Character {
-	public boolean isAlive();
 	public int getHealth();
 	public int getAttack();
 	public String getName();
