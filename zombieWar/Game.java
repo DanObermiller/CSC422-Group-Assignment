@@ -10,7 +10,7 @@ import java.util.Random;
 public class Game {
 	public void startGame() {
 		// Create a character spawner
-		characterSpawner spawner = new characterSpawner();
+		CharacterSpawner spawner = new CharacterSpawner();
 
 		// Create random number generator
 		Random rand = new Random();
@@ -122,3 +122,4 @@ public class Game {
 		return aliveCount;
 	}
 }
+
