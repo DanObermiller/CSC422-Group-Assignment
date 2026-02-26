@@ -11,6 +11,7 @@ public class Game {
 	public void startGame() {
 		// Create a character spawner
 		CharacterSpawner spawner = new CharacterSpawner();
+		WeaponSpawner ws = new WeaponSpawner();
 
 		// Create random number generator
 		Random rand = new Random();
@@ -22,6 +23,11 @@ public class Game {
 			randInt = 5;
 		}
 		Survivor[] survivors = spawner.spawnManyHuman(randInt);
+		Weapon[] weapons = ws.spawnManyWeapons(randInt);
+
+		for(int i = 0; i < randInt; i++) {
+			survivors[i].equipWeapon(weapons[i]);
+		}
 
 		// Randomly spawn between 5 - 20 zombies
 		randInt = rand.nextInt(16) + 5; // Generates a random number between 5 and 20
@@ -40,13 +46,15 @@ public class Game {
 		if(childCount == 1) {
 			System.out.println("We have " + survivors.length + " survivors trying to make it to safety. ("+soldierCount+" Soldiers, "+ teacherCount+" Teachers, "+childCount+" Child)");
 		} else {
-		System.out.println("We have " + survivors.length + " survivors trying to make it to safety. ("+soldierCount+" Soldiers, "+ teacherCount+" Teachers, "+childCount+" Children)");
+			System.out.println("We have " + survivors.length + " survivors trying to make it to safety. ("+soldierCount+" Soldiers, "+ teacherCount+" Teachers, "+childCount+" Children)");
 		}
 		System.out.println("But there are " + zombies.length + " zombies waiting for them. ("+commonCount+" Common Infected, "+tankCount+ " Tanks) ");
+		
+		System.out.println("Fortunately, a cache of weapons was nearby!");
 
 		// Main game loop
 		while (!isGameOver(survivors, zombies)) {
-			combatRound(survivors, zombies);
+			combatRound(survivors, zombies, rand);
 		}
 
 		// After the game ends, print how many survivors made it to safety
@@ -59,15 +67,20 @@ public class Game {
 
 	}
 
-	private void combatRound(Survivor[] survivor, Zombie[] zombie) {
+	private void combatRound(Survivor[] survivor, Zombie[] zombie, Random rand) {
 		// Survivors attack zombies
 		for (int i = 0; i < survivor.length; i++) {
 			for (int j = 0; j < zombie.length; j++) {
-				if (survivor[i].getHealth() > 0 && zombie[j].getHealth() > 0) {
-					zombie[j].damage(survivor[i].getAttack());
-					if(zombie[j].getHealth() <= 0) {
-						System.out.println(survivor[i].getName() + " Killed "+zombie[j].getName());
+				if(rand.nextInt(100) < survivor[i].getAccuracy()) {
+					if (survivor[i].getHealth() > 0 && zombie[j].getHealth() > 0) {
+						zombie[j].damage(survivor[i].getAttack());
+						if(zombie[j].getHealth() <= 0) {
+							System.out.println(survivor[i].getName() + " Killed "+zombie[j].getName() + " using a "+ survivor[i].getWeapon());
+						}
 					}
+					continue;
+				}else {
+					continue;					
 				}
 			}
 		}
@@ -78,7 +91,7 @@ public class Game {
 				if (zombie[j].getHealth() > 0 && survivor[i].getHealth() > 0) {
 					survivor[i].damage(zombie[j].getAttack());
 					if(survivor[i].getHealth() <= 0) {
-						System.out.println(zombie[j].getName() + " Killed "+survivor[i].getName());
+						System.out.println(zombie[j].getName() + " Killed "+survivor[i].getName() + " using their " + zombie[j].getWeapon());
 					}
 				}
 			}

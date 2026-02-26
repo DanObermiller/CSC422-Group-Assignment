@@ -6,7 +6,7 @@ public class Main {
 
 		System.out.println("Zombie War!");
 		System.out.println();
-
+		
 		Game game = new Game();
 		game.startGame();
 
