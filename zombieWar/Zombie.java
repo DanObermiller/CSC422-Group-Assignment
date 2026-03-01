@@ -6,7 +6,9 @@ package zombieWar;
 public abstract class Zombie implements Character {
 	int attack;
 	int health;
+	int accuracy = 100;
 	String name;
+	String weapon = "Zombie Claws";
 
 	public int getAttack(){
 		return attack;
@@ -34,6 +36,20 @@ public abstract class Zombie implements Character {
 
 	public void damage(int damageDealt){
 		health = health-damageDealt;
+	}
+	
+	public int getAccuracy() {
+		return accuracy;
+	}
+
+	public String getWeapon() {
+		return weapon;
+	}
+
+	public void equipWeapon(Weapon w) {
+		accuracy = w.accuracy;
+		attack += w.damageBonus;
+		weapon = w.getName();
 	}
 
 }
